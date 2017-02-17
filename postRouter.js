@@ -44,4 +44,15 @@ router.delete('/:id', (req, res) => {
   return res.sendStatus(200);
 });
 
+router.put('/:id', jsonParser, (req, res) => {
+  if (req.params.id !== req.body.id){
+    return res.sendStatus(400);
+  }
+  const updatedObject = req.body;
+  BlogPosts.update(updatedObject);
+  return res.sendStatus(200);
+
+
+});
+
 module.exports = router;
