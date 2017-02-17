@@ -11,7 +11,15 @@ BlogPosts.create ('my first post', content, 'us');
 BlogPosts.create ('my second post', content, 'guest author');
 
 router.get('/', (req, res) => {
-  res.json(BlogPosts.get());
+  return res.json(BlogPosts.get());
+});
+
+router.get('/:id', (req, res) => {
+  const post = BlogPosts.get(req.params.id)
+  if (!post) {
+    return res.sendStatus(404);
+  }
+  return res.json(post);
 });
 
 router.post('/', jsonParser, (req, res) => {
