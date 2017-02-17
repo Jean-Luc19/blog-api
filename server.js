@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const postRouter = require('./postRouter');
 
+app.use(express.static('public'));
 app.use('/blog-posts', postRouter);
 
 app.listen(process.env.PORT || 8080, () => {

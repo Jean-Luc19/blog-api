@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
 const {BlogPosts} = require('./models');
-const content = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`;
+const content = `Lorem ipsum dolor sit amet, ea atqui quaeque per, ea expetendis
+reprimique mei. No usu homero delicata disputando. Ex mea vocibus adipisci,
+  te quidam albucius usu. Ei porro noluisse deterruisset per.
+  Mea ei inani euismod volutpat, eos ei atqui antiopam splendide.`;
 
 BlogPosts.create ('my first post', content, 'us');
 BlogPosts.create ('my second post', content, 'guest author');

@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+}
+
+.post {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 400px;
+  padding: 10px;
+  margin: 5px auto;
+}
+
+.post:hover{
+  box-shadow: 6px 5px 30px #505050;
+}
