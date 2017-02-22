@@ -43,7 +43,22 @@ describe('Suite of test for the post API layer', function() {
         res.body.title.should.be.a('string');
         res.body.content.should.be.a('string');
         res.body.author.should.be.a('string');
-      })
+      });
     });
   });
-})
+   
+  it('should check to see that a new post was added', function() {
+    const newPost = {title: 'new post', content: 'content', author: 'new author'};
+    chai.request(app)
+    .post('/blog-posts')
+    .send(newPost)
+    .then(function(res){
+        res.should.have.status(201);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.include.keys('title', 'content', 'author');
+        res.body.id.should.not.be.null;
+        res.body.should.deep.equal(Object.assign(newPost, {id: res.body.id}));
+    });
+  });
+});
